@@ -8,6 +8,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
 
+  I noticed quite a few bugs. First of all the higher, lower system is broken. I guessed 99 at one point and it told me to go higher which would mean the answer is 100 but it was not. Another bug I noticed is that I guessed 50 and got the secret number 'right' but the secret number was actually 22. I was also unable to restart the game after winning. Lastly, I was able to guess numbers outside the range and the hints did not match the position of the numbers.
+
 ---
 
 ## 2. How did you use AI as a teammate?
