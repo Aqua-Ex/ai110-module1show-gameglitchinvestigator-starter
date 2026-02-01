@@ -18,6 +18,9 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - Give one example of an AI suggestion you accepted and why.
 - Give one example of an AI suggestion you changed or rejected and why.
 
+I used Copilot on this project. An example of a suggestion I accepted is the change to the parse_guess logic. I never rejected an AI solution as I found them all to be pretty accurate when I read through them, I did however change some code related to the parse_guess function because it forgot to account for added parmeters in the function definition.
+
+
 ---
 
 ## 3. Debugging and testing your fixes
@@ -27,13 +30,15 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
 
----
+--- I used a mixture of unit test and manual testing to decide if a bug was really fixed. I noticed that the program was allowing numbers outside of the corresponding range to be allowed as attempts. After fixing this I added a unit test to check if numbers outside the range counted as valid and also did some manual testing to confirm the results. AI did design most of the test based on new code that was added, I wouldn't say it helped me understand the test.
 
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 - What change did you make that finally gave the game a stable secret number?
+
+Streamlit reruns code each time a user clicks a button, however session state allows for variables to stay/persists across reruns. The secret number kept changing because the variable was not being persisted throughout reruns. I used a session state to persist the secret number across reruns.
 
 ---
 
@@ -43,3 +48,5 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+
+Giving the agent more context when prompting is something I want to continue doing in order to get better results. Next time I work with AI i'll commit more frequently so that I don't lose important working code. This project helped me see how powerful AI is for coding but how it is still very flawed in many aspects.
