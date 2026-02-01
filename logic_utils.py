@@ -1,11 +1,23 @@
+# Fix: Implemented to return the correct range for each difficulty level.
+# This ensures the secret number is generated within bounds and validates
+# user guesses are within the valid range.
 def get_range_for_difficulty(difficulty: str):
     """Return (low, high) inclusive range for a given difficulty."""
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    if difficulty == "Easy":
+        return 1, 20
+    if difficulty == "Normal":
+        return 1, 100
+    if difficulty == "Hard":
+        return 1, 50
+    return 1, 100
 
 
-def parse_guess(raw: str):
+# Fix: Updated to validate guesses are within the valid range for the difficulty
+# level. Now accepts low/high bounds and rejects out-of-range guesses with a
+# clear error message.
+def parse_guess(raw: str, low: int = 1, high: int = 100):
     """
-    Parse user input into an int guess.
+    Parse user input into an int guess and validate it's in range.
 
     Returns: (ok: bool, guess_int: int | None, error_message: str | None)
     """
@@ -23,6 +35,9 @@ def parse_guess(raw: str):
     except Exception:
         return False, None, "That is not a number."
 
+    if value < low or value > high:
+        return False, None, f"Please enter a number between {low} and {high}."
+
     return True, value, None
 
 
@@ -32,6 +47,8 @@ def check_guess(guess, secret):
 
     outcome examples: "Win", "Too High", "Too Low"
     """
+    # Fix: Implemented comparison logic to return outcome strings and
+    # handle TypeError by falling back to string comparisons.
     if guess == secret:
         return "Win"
 
